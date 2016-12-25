@@ -126,10 +126,9 @@ exports.handle = (client) => {
     prompt() {
       let botInformation = {
         interest: client.getConversationState().botInfo.value,
-        name: 'Layla',
       }
 
-      client.addResponse('provide_bot/name', botInformation)
+      client.addResponse('provide_bot/name')
       client.done()
     }
   })
