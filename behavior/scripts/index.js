@@ -66,6 +66,46 @@ exports.handle = (client) => {
     }
   })
 
+  const collectCity = client.createStep({
+    satisfied() {
+      return Boolean(client.getConversationState().weatherCity)
+    },
+
+    extractInfo() {
+      const city = client.getFirstEntityWithRole(client.getMessagePart(), 'city')
+
+      if (city) {
+        client.updateConversationState({
+          weatherCity: city,
+        })
+
+        console.log('User wants the weather in:', city.value)
+      }
+    },
+
+    prompt() {
+      client.addResponse('prompt/weather_city')
+      client.done()
+    },
+  })
+
+  const provideWeather = client.createStep({
+    satisfied() {
+      return false
+    },
+
+    prompt() {
+      let weatherData = {
+        temperature: 29,
+        condition: 'ensolarado',
+        city: client.getConversationState().weatherCity.value,
+      }
+
+      client.addResponse('provide_weather/current', weatherData)
+      client.done()
+    }
+  })
+
   client.runFlow({
     classifications: {
       // map inbound message classifications to names of streams
@@ -77,6 +117,7 @@ exports.handle = (client) => {
       // configure responses to be automatically sent as predicted by the machine learning model
     },
     streams: {
+      getWeather: [collectCity, provideWeather],
       question: handleQuestion,
       goodbye: handleGoodbye,
       greeting: handleGreeting,
