@@ -95,13 +95,40 @@ exports.handle = (client) => {
     }
   })
 
+  const collectUserInterest = client.createStep({
+    satisfied() {
+      return Boolean(client.getConversationState().botInfo)
+    },
+
+    extractInfo() {
+      const userInterest = client.getFirstEntityWithRole(client.getMessagePart(), 'interest')
+
+      if (userInterest) {
+        client.updateConversationState({
+          botInfo: userInterest,
+        })
+
+        console.log('User is interessed in:', userInterest.value)
+      }
+    },
+
+    prompt() {
+      client.addResponse('prompt/user_interest')
+      client.done()
+    },
+  })
+
   const provideBotInfo = client.createStep({
     satisfied() {
       return false
     },
 
     prompt() {
-      client.addResponse('provide_bot/name')
+      let interest = client.getConversationState().botInfo.value
+
+      if (interest === "nome"){
+        client.addResponse('provide_bot/name')
+      }
       client.done()
     }
   })
@@ -121,7 +148,7 @@ exports.handle = (client) => {
       getWeather: [collectCity, provideWeather],
       goodbye: handleGoodbye,
       greeting: handleGreeting,
-      getBotInfo: provideBotInfo,
+      getBotInfo: [collectUserInterest, provideBotInfo],
     main: 'onboarding',
     onboarding: [sayHello],
     end: [untrained]
