@@ -55,17 +55,6 @@ exports.handle = (client) => {
     }
   })
 
-  const handleQuestion = client.createStep({
-    satisfied() {
-      return false
-    },
-
-    prompt() {
-      client.addResponse('provide/answer')
-      client.done()
-    }
-  })
-
   const collectCity = client.createStep({
     satisfied() {
       return Boolean(client.getConversationState().weatherCity)
@@ -106,22 +95,33 @@ exports.handle = (client) => {
     }
   })
 
+  const provideBotInfo = client.createStep({
+    satisfied() {
+      return false
+    },
+
+    prompt() {
+      client.addResponse('provide_bot_info')
+      client.done()
+    }
+  })
+
   client.runFlow({
     classifications: {
       // map inbound message classifications to names of streams
-      question: 'question',
       goodbye: 'goodbye',
       greeting: 'greeting',
-      ask_current_weather: 'getWeather'
+      ask_current_weather: 'getWeather',
+      ask_bot_info: 'getBotInfo'
     },
     autoResponses: {
       // configure responses to be automatically sent as predicted by the machine learning model
     },
     streams: {
       getWeather: [collectCity, provideWeather],
-      question: handleQuestion,
       goodbye: handleGoodbye,
       greeting: handleGreeting,
+      getBotInfo: provideBotInfo,
     main: 'onboarding',
     onboarding: [sayHello],
     end: [untrained]
