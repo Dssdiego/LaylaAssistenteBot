@@ -128,7 +128,9 @@ exports.handle = (client) => {
         interest: client.getConversationState().botInfo.value,
       }
 
-      client.addResponse('provide_bot/name')
+      if (botInformation.interest == 'nome'){
+        client.addResponse('provide_bot/name')
+      }
       client.done()
     }
   })
