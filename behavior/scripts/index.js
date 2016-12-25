@@ -95,13 +95,13 @@ exports.handle = (client) => {
     }
   })
 
-  const provideBotInfo = client.createStep({
+  const provideBotName = client.createStep({
     satisfied() {
       return false
     },
 
     prompt() {
-      client.addResponse('provide_bot_info')
+      client.addResponse('provide_bot_info/name')
       client.done()
     }
   })
@@ -112,7 +112,7 @@ exports.handle = (client) => {
       goodbye: 'goodbye',
       greeting: 'greeting',
       ask_current_weather: 'getWeather',
-      ask_bot_info: 'getBotInfo'
+      ask_bot_info: 'getBotName'
     },
     autoResponses: {
       // configure responses to be automatically sent as predicted by the machine learning model
@@ -121,7 +121,7 @@ exports.handle = (client) => {
       getWeather: [collectCity, provideWeather],
       goodbye: handleGoodbye,
       greeting: handleGreeting,
-      getBotInfo: provideBotInfo,
+      getBotName: provideBotName,
     main: 'onboarding',
     onboarding: [sayHello],
     end: [untrained]
