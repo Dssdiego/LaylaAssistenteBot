@@ -6,5 +6,5 @@ timestamp: 2016-12-25T20:27:31.0816197-02:00
 Qual seu [nome](interest)?
 * ask_bot_info/name
 
-< Me chamo [Layla](interest).
+< Me chamo [Layla](name).
 * provide_bot/name
