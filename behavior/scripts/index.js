@@ -8,11 +8,11 @@ exports.handle = (client) => {
     },
 
     prompt() {
-      client.addResponse('welcome')
-      client.addResponse('provide/documentation', {
-        documentation_link: 'http://docs.init.ai',
-      })
-      client.addResponse('provide/instructions')
+      client.addResponse('greeting')
+      // client.addResponse('provide/documentation', {
+      //   documentation_link: 'http://docs.init.ai',
+      // })
+      // client.addResponse('provide/instructions')
 
       client.updateConversationState({
         helloSent: true
@@ -121,7 +121,7 @@ exports.handle = (client) => {
       question: handleQuestion,
       goodbye: handleGoodbye,
       greeting: handleGreeting,
-    main: 'getWeather',
+    main: 'onboarding',
     onboarding: [sayHello],
     end: [untrained]
     },
