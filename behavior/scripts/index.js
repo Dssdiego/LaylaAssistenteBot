@@ -101,7 +101,7 @@ exports.handle = (client) => {
     },
 
     prompt() {
-      client.addResponse('provide_bot')
+      client.addResponse('provide_bot/name')
       client.done()
     }
   })
