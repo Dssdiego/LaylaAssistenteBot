@@ -131,6 +131,11 @@ exports.handle = (client) => {
       if (botInformation.interest == 'nome'){
         client.addResponse('provide_bot/name')
       }
+
+      if (botInformation.interest == 'idade'){
+        client.addResponse('provide_bot/age')
+      }
+      
       client.done()
     }
   })
