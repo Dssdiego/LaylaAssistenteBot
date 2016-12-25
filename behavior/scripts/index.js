@@ -111,8 +111,7 @@ exports.handle = (client) => {
       // map inbound message classifications to names of streams
       question: 'question',
       goodbye: 'goodbye',
-      greeting: 'greeting',
-      getWeather: 'getWeather'
+      greeting: 'greeting'
     },
     autoResponses: {
       // configure responses to be automatically sent as predicted by the machine learning model
@@ -122,7 +121,7 @@ exports.handle = (client) => {
       question: handleQuestion,
       goodbye: handleGoodbye,
       greeting: handleGreeting,
-    main: 'onboarding',
+    main: 'getWeather',
     onboarding: [sayHello],
     end: [untrained]
     },
