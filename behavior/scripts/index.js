@@ -55,9 +55,21 @@ exports.handle = (client) => {
     }
   })
 
+  const handleQuestion = client.createStep({
+    satisfied() {
+      return false
+    },
+
+    prompt() {
+      client.addResponse('question')
+      client.done()
+    }
+  })
+
   client.runFlow({
     classifications: {
       // map inbound message classifications to names of streams
+      question: 'question',
       goodbye: 'goodbye',
       greeting: 'greeting'
     },
@@ -65,6 +77,7 @@ exports.handle = (client) => {
       // configure responses to be automatically sent as predicted by the machine learning model
     },
     streams: {
+      question: handleQuestion,
       goodbye: handleGoodbye,
       greeting: handleGreeting,
     main: 'onboarding',
