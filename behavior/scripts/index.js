@@ -61,7 +61,7 @@ exports.handle = (client) => {
     },
 
     prompt() {
-      client.addResponse('question')
+      client.addResponse('provide/answer')
       client.done()
     }
   })

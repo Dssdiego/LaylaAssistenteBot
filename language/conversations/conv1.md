@@ -13,7 +13,7 @@ Qual seu nome?
 * question/general
 
 < Me chamo Layla
-* question/answer
+* provide/answer
 
 Xau
 * goodbye
