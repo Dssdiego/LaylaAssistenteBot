@@ -13,16 +13,4 @@ Me chamo [Diego](name)
 * answer/name
 
 < Prazer em te conhecer [Diego](name)!
-* greeting
-
-< Meu nome é Layla.
-* greeting
-
-< Sou sua assitente virtual e estou aqui para lhe ajudar!
-* greeting
-
-Xau
-* goodbye
-
-< Xau [Diego](name)
-* goodbye
+* answer/name
