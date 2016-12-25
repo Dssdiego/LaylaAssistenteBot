@@ -9,12 +9,6 @@ Oi!
 < Oi humano!
 * greeting
 
-Qual seu nome?
-* question/general
-
-< Me chamo Layla
-* provide/answer
-
 Xau
 * goodbye
 
