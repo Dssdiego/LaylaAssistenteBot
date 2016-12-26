@@ -150,7 +150,7 @@ exports.handle = (client) => {
       client.done()
     }
   })
-
+  
   client.runFlow({
     classifications: {
       // map inbound message classifications to names of streams
@@ -158,7 +158,7 @@ exports.handle = (client) => {
       greeting: 'greeting',
       ask_current_weather: 'getWeather',
       ask_bot_info: 'getBotInfo',
-      provide_feedback_adjective: 'getBotFeedback'
+      feedback_bot_adjective: 'getBotFeedback'
     },
     autoResponses: {
       // configure responses to be automatically sent as predicted by the machine learning model
