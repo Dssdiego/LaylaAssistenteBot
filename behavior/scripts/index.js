@@ -135,7 +135,18 @@ exports.handle = (client) => {
       if (botInformation.interest == 'idade'){
         client.addResponse('provide_bot/age')
       }
-      
+
+      client.done()
+    }
+  })
+
+  const provideBotFeedback = client.createStep({
+    satisfied() {
+      return false
+    },
+
+    prompt() {
+      client.addResponse('provide_feedback_adjective/negative')
       client.done()
     }
   })
@@ -146,7 +157,8 @@ exports.handle = (client) => {
       goodbye: 'goodbye',
       greeting: 'greeting',
       ask_current_weather: 'getWeather',
-      ask_bot_info: 'getBotInfo'
+      ask_bot_info: 'getBotInfo',
+      provide_feedback_adjective: 'getBotFeedback'
     },
     autoResponses: {
       // configure responses to be automatically sent as predicted by the machine learning model
@@ -156,6 +168,7 @@ exports.handle = (client) => {
       goodbye: handleGoodbye,
       greeting: handleGreeting,
       getBotInfo: [collectUserInterest, provideBotInfo],
+      getBotFeedback: provideBotFeedback,
     main: 'onboarding',
     onboarding: [sayHello],
     end: [untrained]
