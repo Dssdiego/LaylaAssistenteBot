@@ -1,5 +1,5 @@
-Você é esquisita
+Sua Puta
 * feedback_bot_adjective/negative
 
-< Não sou não! >.<
+< Sua mãe, seu arrombado!
 * provide_feedback_adjective/negative

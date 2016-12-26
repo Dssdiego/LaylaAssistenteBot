@@ -1,4 +1,4 @@
-[Retardada](adjective#negative)
+Retardada
 * feedback_bot_adjective/negative
 
 < Seu cú!

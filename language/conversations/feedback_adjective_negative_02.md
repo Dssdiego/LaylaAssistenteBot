@@ -1,4 +1,4 @@
-Na moral, tá [chato](adjective#negative)
+Na moral, tá chato
 * feedback_bot_adjective/negative
 
 < Procure outro bot pra conversar então! #ProntoFalei ;D
