@@ -132,8 +132,12 @@ exports.handle = (client) => {
         client.addResponse('provide_bot/name')
       }
 
-      if (botInformation.interest == 'idade'){
+      else if (botInformation.interest == 'idade'){
         client.addResponse('provide_bot/age')
+      }
+
+      else {
+        client.addResponse('apology/untrained')
       }
 
       client.done()
@@ -154,6 +158,8 @@ exports.handle = (client) => {
       if ('provide_feedback_adjective/positive'){
         client.addResponse('provide_feedback_adjective/positive')
       }
+
+      client.addResponse('apology/unknown')
       client.done()
     }
   })
