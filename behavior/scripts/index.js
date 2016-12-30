@@ -151,15 +151,8 @@ exports.handle = (client) => {
 
     prompt() {
 
-      if ('provide_feedback_adjective/negative'){
-        client.addResponse('provide_feedback_adjective/negative')
-      }
-
-      if ('provide_feedback_adjective/positive'){
-        client.addResponse('provide_feedback_adjective/positive')
-      }
-
-      client.addResponse('apology/unknown')
+      
+      client.addResponse('provide_feedback_adjective')
       client.done()
     }
   })
