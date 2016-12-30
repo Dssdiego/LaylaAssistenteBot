@@ -7,4 +7,4 @@ Te agradeço muito
 * thanks
 
 < Sem problemas!
-* provide_thanks
+* thanks

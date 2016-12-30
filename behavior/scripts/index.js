@@ -95,6 +95,17 @@ exports.handle = (client) => {
     }
   })
 
+  const handleThanks = client.createStep({
+    satisfied() {
+      return false
+    },
+
+    prompt() {
+      client.addResponse('thanks')
+      client.done()
+    }
+  })
+
   const collectCity = client.createStep({
     satisfied() {
       return Boolean(client.getConversationState().weatherCity)
@@ -222,14 +233,27 @@ exports.handle = (client) => {
       client.done()
     }
   })
+
+  const provideAttentionFeedback = client.createStep({
+    satisfied() {
+      return false
+    },
+
+    prompt() {
+      client.addResponse('provide_user_attention')
+      client.done()
+    }
+  })
   
   client.runFlow({
     classifications: {
       // map inbound message classifications to names of streams
       goodbye: 'goodbye',
       greeting: 'greeting',
+      thanks: 'thanks',
       ask_current_weather: 'getWeather',
       ask_bot_info: 'getBotInfo',
+      ask_bot_attention: 'getBotAttention',
       feedback_bot_adjective: 'getBotFeedback',
       feedback_user_humor: 'getHumorFeedback'
     },
@@ -237,11 +261,13 @@ exports.handle = (client) => {
       // configure responses to be automatically sent as predicted by the machine learning model
     },
     streams: {
-      getWeather: [collectCity, provideWeather],
-      goodbye: handleGoodbye,
       greeting: handleGreeting,
+      goodbye: handleGoodbye,
+      thanks: handleThanks,
+      getWeather: [collectCity, provideWeather],
       getBotInfo: [collectUserInterest, provideBotInfo],
       getBotFeedback: provideBotFeedback,
+      getBotAttention: provideAttentionFeedback,
       getHumorFeedback: provideHumorFeedback,
     main: 'onboarding',
     onboarding: [sayHello],

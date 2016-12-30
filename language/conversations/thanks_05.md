@@ -7,4 +7,4 @@ Nossa, muito obrigado mesmo!
 * thanks/emphatic
 
 < Por nada. ;)
-* provide_thanks
+* thanks

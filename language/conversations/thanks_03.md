@@ -7,4 +7,4 @@ Obrigada
 * thanks
 
 < Estou aqui para lhe ajudar, sempre!
-* provide_thanks
+* thanks
