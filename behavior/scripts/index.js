@@ -182,7 +182,7 @@ exports.handle = (client) => {
       client.addImageResponse(image)
       client.done()
 
-      let image = ''
+      image = ''
     }
   })
   
