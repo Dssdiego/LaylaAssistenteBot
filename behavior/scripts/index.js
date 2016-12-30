@@ -1,7 +1,8 @@
 'use strict'
 
 exports.handle = (client) => {
-  let image = 
+  let c_Cats = 0
+  let catImages = 
         [
          'http://24.media.tumblr.com/tumblr_lzoc33JZ7k1qb7j67o1_250.jpg',
          'http://25.media.tumblr.com/tumblr_kp2kxdwTpr1qzv5pwo1_250.jpg',
@@ -188,9 +189,10 @@ exports.handle = (client) => {
 
       client.addResponse('provide_feedback_humor/negative') 
       //client.addImageResponse('http://thecatapi.com/api/images/get?api_key=MTQ2ODUw&size=small')
-      client.addImageResponse(image[0])
-      client.addImageResponse(image[1])
+      client.addImageResponse(catImages[c_Cats])
       client.done()
+
+      c_Cats = c_Cats + 1
     }
   })
   
