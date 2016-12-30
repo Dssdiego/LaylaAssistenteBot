@@ -150,14 +150,14 @@ exports.handle = (client) => {
     },
 
     prompt() {
-      let baseClassification = client.getMessagePart().classification.base_type.value
-      console.log ('teste' + baseClassification)
+      let subClassification = client.getMessagePart().classification.sub_type.value
+      console.log ('teste' + subClassification)
 
-      if (baseClassification === 'positive') {
+      if (subClassification === 'positive') {
         client.addResponse('provide_feedback_adjective/positive')
       } 
 
-      else if (baseClassification === 'negative') {
+      else if (subClassification === 'negative') {
         client.addResponse('provide_feedback_adjective/negative')
       }
 
@@ -168,6 +168,9 @@ exports.handle = (client) => {
       client.done()
     }
   })
+
+  // Imagens de Gatinhos [Gerador Automático] -->
+  // client.addImageResponse('http://thecatapi.com/api/images/get?size=small')
   
   client.runFlow({
     classifications: {
