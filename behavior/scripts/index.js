@@ -169,8 +169,17 @@ exports.handle = (client) => {
     }
   })
 
-  // Imagens de Gatinhos [Gerador Automático] -->
-  // client.addImageResponse('http://thecatapi.com/api/images/get?size=small')
+  const provideHumorFeedback = client.createStep({
+    satisfied() {
+      return false
+    },
+
+    prompt() {
+      client.addResponse('provide_feedback_humor/negative')
+      client.addImageResponse('http://thecatapi.com/api/images/get?size=small')
+      client.done()
+    }
+  })
   
   client.runFlow({
     classifications: {
@@ -180,6 +189,7 @@ exports.handle = (client) => {
       ask_current_weather: 'getWeather',
       ask_bot_info: 'getBotInfo',
       feedback_bot_adjective: 'getBotFeedback'
+      feedback_user_humor: 'getHumorFeedback'
     },
     autoResponses: {
       // configure responses to be automatically sent as predicted by the machine learning model
@@ -190,6 +200,7 @@ exports.handle = (client) => {
       greeting: handleGreeting,
       getBotInfo: [collectUserInterest, provideBotInfo],
       getBotFeedback: provideBotFeedback,
+      getHumorFeedback: provideHumorFeedback
     main: 'onboarding',
     onboarding: [sayHello],
     end: [untrained]
