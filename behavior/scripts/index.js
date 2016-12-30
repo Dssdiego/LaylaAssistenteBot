@@ -1,15 +1,29 @@
 'use strict'
 
-var c_Cats = 0
-
 exports.handle = (client) => {
+  var c_Cats = 0
   let catImages = 
         [
          'http://24.media.tumblr.com/tumblr_lzoc33JZ7k1qb7j67o1_250.jpg',
+         'http://25.media.tumblr.com/tumblr_m305x9BSQv1qzex9io1_250.jpg',
+         'http://24.media.tumblr.com/tumblr_lzoc33JZ7k1qb7j67o1_250.jpg',
          'http://25.media.tumblr.com/tumblr_kp2kxdwTpr1qzv5pwo1_250.jpg',
+         'http://24.media.tumblr.com/tumblr_m4h71yrFH51rwcc6bo1_250.gif',
          'http://25.media.tumblr.com/tumblr_m3b5dhmcLF1qzyqubo1_250.jpg',
          'http://25.media.tumblr.com/tumblr_li6itvRslB1qfyzelo1_250.jpg',
-         'http://24.media.tumblr.com/Jjkybd3nSces48pnerQxzaA2_250.jpg'
+         'http://24.media.tumblr.com/Jjkybd3nSces48pnerQxzaA2_250.jpg',
+         'http://24.media.tumblr.com/tumblr_m3zxc1DryY1qgg1kko1_250.gif',
+         'http://25.media.tumblr.com/tumblr_m1zq28KU901qz4dkmo1_250.jpg',
+         'http://25.media.tumblr.com/tumblr_m1fp79Zi4g1qzmicpo1_1280.jpg',
+         'http://25.media.tumblr.com/tumblr_ly42s96TLy1qlyuwso1_250.jpg',
+         'http://25.media.tumblr.com/tumblr_lnq3h8317N1qbt33io1_250.jpg',
+         'http://24.media.tumblr.com/tumblr_mats6jFFhQ1r6jd7fo1_250.jpg',
+         'http://24.media.tumblr.com/tumblr_m47ekdZVVx1qze0hyo1_250.jpg',
+         'http://24.media.tumblr.com/tumblr_lxyk6s455e1qb73tpo1_250.gif',
+         'http://24.media.tumblr.com/tumblr_m3mszrNf9b1r73wdao1_250.jpg',
+         'http://25.media.tumblr.com/tumblr_m3outyVHt91r73wdao1_250.gif',
+         'http://24.media.tumblr.com/tumblr_m4vzfxxw271r6b7kmo1_250.jpg',
+         'http://24.media.tumblr.com/tumblr_m2kye3YDLH1qbe5pxo1_250.jpg'
         ]
 
   // Create steps
@@ -182,8 +196,8 @@ exports.handle = (client) => {
 
   const provideHumorFeedback = client.createStep({
     satisfied() {
-      c_Cats = c_Cats + 1
-      
+      c_Cats = Math.floor((Math.random() * 19) + 1)
+
       return false
     },
 
@@ -191,7 +205,7 @@ exports.handle = (client) => {
       // Math.random()
 
       client.addResponse('provide_feedback_humor/negative') 
-      //client.addImageResponse('http://thecatapi.com/api/images/get?api_key=MTQ2ODUw&size=small')
+      //http://thecatapi.com/api/images/get?api_key=MTQ2ODUw&size=small
       client.addImageResponse(catImages[c_Cats + 1])
       client.done()
     }
