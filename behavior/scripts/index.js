@@ -188,7 +188,7 @@ exports.handle = (client) => {
       greeting: 'greeting',
       ask_current_weather: 'getWeather',
       ask_bot_info: 'getBotInfo',
-      feedback_bot_adjective: 'getBotFeedback'
+      feedback_bot_adjective: 'getBotFeedback',
       feedback_user_humor: 'getHumorFeedback'
     },
     autoResponses: {
