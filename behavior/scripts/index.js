@@ -1,7 +1,8 @@
 'use strict'
 
+let c_Cats = 0
+
 exports.handle = (client) => {
-  let c_Cats = 0
   let catImages = 
         [
          'http://24.media.tumblr.com/tumblr_lzoc33JZ7k1qb7j67o1_250.jpg',
