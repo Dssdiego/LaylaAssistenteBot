@@ -1,5 +1,5 @@
 Sua Puta
 * feedback_bot_adjective/negative
 
-< Sua mãe, seu arrombado!
+< Que indelicado!
 * provide_feedback_adjective/negative
