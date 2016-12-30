@@ -200,7 +200,7 @@ exports.handle = (client) => {
       greeting: handleGreeting,
       getBotInfo: [collectUserInterest, provideBotInfo],
       getBotFeedback: provideBotFeedback,
-      getHumorFeedback: provideHumorFeedback
+      getHumorFeedback: provideHumorFeedback,
     main: 'onboarding',
     onboarding: [sayHello],
     end: [untrained]
