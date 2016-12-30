@@ -1,6 +1,6 @@
 'use strict'
 
-var c_Cats
+var c_Cats = 0
 
 exports.handle = (client) => {
   let catImages = 
@@ -182,17 +182,17 @@ exports.handle = (client) => {
 
   const provideHumorFeedback = client.createStep({
     satisfied() {
+      c_Cats = c_Cats + 1
+      
       return false
     },
 
     prompt() {
       // Math.random()
 
-      c_Cats = c_Cats + 1
-
       client.addResponse('provide_feedback_humor/negative') 
       //client.addImageResponse('http://thecatapi.com/api/images/get?api_key=MTQ2ODUw&size=small')
-      client.addImageResponse(catImages[c_Cats])
+      client.addImageResponse(catImages[c_Cats + 1])
       client.done()
     }
   })
