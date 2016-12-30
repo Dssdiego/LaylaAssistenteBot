@@ -151,7 +151,8 @@ exports.handle = (client) => {
 
     prompt() {
       let baseClassification = client.getMessagePart().classification.base_type.value
-      
+      console.log ('teste' + baseClassification)
+
       if (baseClassification === 'positive') {
         client.addResponse('provide_feedback_adjective/positive')
       } 
@@ -163,7 +164,7 @@ exports.handle = (client) => {
       else {
         client.addResponse('apology/untrained')
       }
-      
+
       client.done()
     }
   })
