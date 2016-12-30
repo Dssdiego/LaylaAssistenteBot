@@ -1,6 +1,6 @@
 'use strict'
 
-let c_Cats = 0
+var c_Cats = 0
 
 exports.handle = (client) => {
   let catImages = 
