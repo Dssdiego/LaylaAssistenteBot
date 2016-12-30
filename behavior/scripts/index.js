@@ -23,8 +23,23 @@ exports.handle = (client) => {
          'http://24.media.tumblr.com/tumblr_m3mszrNf9b1r73wdao1_250.jpg',
          'http://25.media.tumblr.com/tumblr_m3outyVHt91r73wdao1_250.gif',
          'http://24.media.tumblr.com/tumblr_m4vzfxxw271r6b7kmo1_250.jpg',
-         'http://24.media.tumblr.com/tumblr_m2kye3YDLH1qbe5pxo1_250.jpg'
+         'http://24.media.tumblr.com/tumblr_m2kye3YDLH1qbe5pxo1_250.jpg',
+         'http://25.media.tumblr.com/tumblr_m22hyh77PL1qmqlwso1_r1_250.jpg',
+         'http://24.media.tumblr.com/tumblr_m38o9dD0O41r6b7kmo1_250.jpg',
+         'http://25.media.tumblr.com/tumblr_m6fcg8MemM1qddbvio1_250.jpg',
+         'http://24.media.tumblr.com/Jjkybd3nS9i6zksnMNDu4kGk_250.jpg',
+         'http://24.media.tumblr.com/tumblr_m4nxpqJbjB1qd477zo1_250.jpg',
+         'http://25.media.tumblr.com/tumblr_m4rlz1mSlk1qd477zo1_250.jpg',
+         'http://24.media.tumblr.com/tumblr_m3s4p3vRuD1r73wdao1_250.jpg',
+         'http://24.media.tumblr.com/tumblr_low6rhcPh61qbhms5o1_250.jpg',
+         'http://25.media.tumblr.com/tumblr_lp9s3w55HO1qbt33io1_250.jpg',
+         'http://24.media.tumblr.com/tumblr_lvif70646v1r61ltjo1_250.jpg',
+         'http://25.media.tumblr.com/Jjkybd3nSaqb79iamzZBs63e_250.jpg',
+         'http://25.media.tumblr.com/tumblr_m4qwu7XeDq1rrhjaso1_250.jpg',
+         'http://25.media.tumblr.com/tumblr_m3rw72Oyzw1rpokdio1_250.gif'
         ]
+
+        //http://thecatapi.com/api/images/get?api_key=MTQ2ODUw&size=small
 
   // Create steps
   const sayHello = client.createStep({
@@ -196,16 +211,13 @@ exports.handle = (client) => {
 
   const provideHumorFeedback = client.createStep({
     satisfied() {
-      c_Cats = Math.floor((Math.random() * 19) + 1)
+      c_Cats = Math.floor((Math.random() * 32) + 1)
 
       return false
     },
 
     prompt() {
-      // Math.random()
-
       client.addResponse('provide_feedback_humor/negative') 
-      //http://thecatapi.com/api/images/get?api_key=MTQ2ODUw&size=small
       client.addImageResponse(catImages[c_Cats + 1])
       client.done()
     }
