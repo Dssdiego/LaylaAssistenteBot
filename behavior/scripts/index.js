@@ -175,10 +175,14 @@ exports.handle = (client) => {
     },
 
     prompt() {
+      let image = 'https://unsplash.it/200?random'
+
       client.addResponse('provide_feedback_humor/negative') 
       //client.addImageResponse('http://thecatapi.com/api/images/get?api_key=MTQ2ODUw&size=small')
-      client.addImageResponse('https://unsplash.it/200?random')
+      client.addImageResponse(image)
       client.done()
+
+      let image = ''
     }
   })
   
