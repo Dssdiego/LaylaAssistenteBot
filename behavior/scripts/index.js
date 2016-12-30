@@ -1,6 +1,6 @@
 'use strict'
 
-var c_Cats = 0
+var c_Cats
 
 exports.handle = (client) => {
   let catImages = 
@@ -193,7 +193,6 @@ exports.handle = (client) => {
       client.addResponse('provide_feedback_humor/negative') 
       //client.addImageResponse('http://thecatapi.com/api/images/get?api_key=MTQ2ODUw&size=small')
       client.addImageResponse(catImages[c_Cats])
-
       client.done()
     }
   })
