@@ -175,8 +175,16 @@ exports.handle = (client) => {
     },
 
     prompt() {
-      client.addResponse('provide_feedback_humor/negative')
-      client.addImageResponse('http://thecatapi.com/api/images/get?api_key=MTQ2ODUw&size=small')
+      request('http://thecatapi.com/api/images/get?api_key=MTQ2ODUw&size=small', (err, res, body) => {
+      if (err) {
+        throw new Error(err)
+      }
+
+      else if (res) {
+        client.addResponse('provide_feedback_humor/negative')
+        client.addImageResponse('http://thecatapi.com/api/images/get?api_key=MTQ2ODUw&size=small')
+      }
+
       client.done()
     }
   })
