@@ -1,14 +1,14 @@
 'use strict'
 
 exports.handle = (client) => {
-  let image = 'http://thecatapi.com/api/images/get?api_key=MTQ2ODUw&size=small'
-        // [
-        //  'http://24.media.tumblr.com/tumblr_lzoc33JZ7k1qb7j67o1_250.jpg',
-        //  'http://25.media.tumblr.com/tumblr_kp2kxdwTpr1qzv5pwo1_250.jpg',
-        //  'http://25.media.tumblr.com/tumblr_m3b5dhmcLF1qzyqubo1_250.jpg',
-        //  'http://25.media.tumblr.com/tumblr_li6itvRslB1qfyzelo1_250.jpg',
-        //  'http://24.media.tumblr.com/Jjkybd3nSces48pnerQxzaA2_250.jpg'
-        // ]
+  let image = 
+        [
+         'http://24.media.tumblr.com/tumblr_lzoc33JZ7k1qb7j67o1_250.jpg',
+         'http://25.media.tumblr.com/tumblr_kp2kxdwTpr1qzv5pwo1_250.jpg',
+         'http://25.media.tumblr.com/tumblr_m3b5dhmcLF1qzyqubo1_250.jpg',
+         'http://25.media.tumblr.com/tumblr_li6itvRslB1qfyzelo1_250.jpg',
+         'http://24.media.tumblr.com/Jjkybd3nSces48pnerQxzaA2_250.jpg'
+        ]
 
   // Create steps
   const sayHello = client.createStep({
@@ -188,7 +188,8 @@ exports.handle = (client) => {
 
       client.addResponse('provide_feedback_humor/negative') 
       //client.addImageResponse('http://thecatapi.com/api/images/get?api_key=MTQ2ODUw&size=small')
-      client.addImageResponse(image)
+      client.addImageResponse(image[0])
+      client.addImageResponse(image[1])
       client.done()
     }
   })
